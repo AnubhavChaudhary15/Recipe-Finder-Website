@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -30,7 +30,7 @@
 
        #bgimg {
            background-image: url('Images/Home(front).jpg');
-           height: 500px;
+           height: 100vh;
            background-size: cover;
            margin-top: 80px;
            opacity: 0.9;
@@ -40,6 +40,8 @@
            flex-direction: column;
            z-index: 1;
            margin: 0px;
+           background-size:cover;
+           background-repeat:no-repeat;
        }
 
        body {
@@ -86,11 +88,11 @@
 
        #img1 {
            z-index: 3;
-           height: 300px;
-           width: 300px;
+           height: 30vh;
+           width: 25vw;
            position: relative;
            left: 40.2%;
-           bottom: 130px;
+           bottom: ;
            border-radius: 10px;
            border: 3px solid white;
        }
@@ -121,8 +123,8 @@
            position: relative;
            z-index: 4;
            left: 41%;
-           bottom: 425px;
-           width: 260px;
+           bottom: 30vh;
+           width: 25vw;
            font-size: 40px;
            color: white;
            margin-left: 30px;
@@ -133,8 +135,8 @@
            position: relative;
            z-index: 4;
            left: 21%;
-           bottom: 265px;
-           width: 260px;
+           bottom: 30vh;
+           width: 25vw;
            font-size: 37px;
            color: white;
            margin-left: 30px;
@@ -145,12 +147,15 @@
            position: relative;
            z-index: 4;
            left: 59%;
-           bottom: 350px;
-           width: 260px;
+           bottom: 30vh;
+           width: 25vw;
            font-size: 40px;
            color: white;
            margin-left: 30px;
            margin-right: 0px;
+       }
+       @media screen and (max-width:400px){
+
        }
    </style>
 </head>
@@ -171,5 +176,6 @@
         <p id="header">Delicious Recipes.</p>
         <p id="caption">Food Recipes from all over the world.</p>
     </div>
+  
 </body>
 </html>
