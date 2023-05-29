@@ -1,0 +1,508 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Meal For Your Ingredients</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lato&family=Pangolin&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Playfair:ital,wght@0,500;1,500&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   <style>
+       
+
+       * {
+           padding: 0px;
+           margin: 0px;
+           box-sizing: border-box;
+       }
+
+       body {
+           overflow-x: hidden;
+           font-weight: 300;
+           font-size: 1.1rem;
+           line-height: 1.6;
+        }
+
+       .material-symbols-outlined {
+           font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+       }
+
+       .heading {
+           font-size: 2rem;
+           margin-bottom: 1rem;
+           color: white;
+           font-size: 70px;
+           font-family: 'Lato', sans-serif;
+       }
+
+     
+       .container {
+           min-height: 100vh;
+          
+       }
+
+       .contain{
+           max-width: 100%;
+           margin: 0 auto;
+           padding: 2rem;
+           background: white;
+           text-align: center;
+           background: url("Images/Recipes(front).jpg");
+           background-size: cover;
+       }
+
+       .search {
+           margin: 2rem 0;
+           overflow: hidden;
+       }
+
+         
+
+       .search-box {
+           margin: 1.2rem 0;
+           display: flex;
+           align-items: stretch;
+       }
+
+       .search-text,
+       .search-btn {
+           width: 100%;
+       }
+
+       .search-text {
+           padding: 0 1rem;
+           font-size: 1.1rem;
+           font-family: inherit;
+           outline: 0;
+           border: 3px solid black;
+           color: black;
+           border-top-left-radius: 2rem;
+           border-bottom-left-radius: 2rem;
+       }
+
+           .search-text::placeholder {
+               color: black;
+           }
+
+       .search-btn {
+           width: 55px;
+           height: 55px;
+           font-size: 1.8rem;
+           background: white;
+           border: 3px solid black;
+           color: black;
+           border: none;
+           border-top-right-radius: 2rem;
+           border-bottom-right-radius: 2rem;
+       }
+
+           .search-btn:hover {
+               color:white;
+               font-size:2.1rem;
+               background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6));
+           }
+
+       .result {
+           margin-top: 4rem;
+       }
+
+       #meal {
+           margin: 2.4rem 0;
+       }
+
+       .meal-item {
+           border-radius: 1rem;
+           overflow: hidden;
+     
+           margin: 2rem 0;
+       }
+
+       .meal-img img {
+           width: 100%;
+           display: block;
+           height: 300px;
+           border-radius: 50px;
+           border: 2px solid white;
+       }
+
+       .meal-name {
+           padding: 1.5rem 0.5rem;
+           color:white;
+           font-family:Pangolin;
+       }
+
+           .meal-name h3 {
+               font-size: 1.9rem;
+           }
+
+       .recipe-btn {
+           text-decoration: none;
+           color: black;
+           background: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,1)),white;
+           font-weight: 500;
+           font-size: 1.1rem;
+           padding: 0.75rem 0;
+           display: block;
+           width: 175px;
+           margin: 1rem auto;
+           border-radius: 2rem;
+       }
+
+           .recipe-btn:hover {
+               background: black;
+               color: white;
+               
+           }
+
+       .meal-details {
+           position: fixed;
+           top: 2%;
+           left: 50%;
+           bottom: 2%;
+           color: white;
+           background: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,1)),white;
+           opacity:0.9;
+           border-radius: 1rem;
+           width: 90%;
+           height: 90%;
+           overflow-y: scroll;
+           display: none;
+           padding: 2rem 0;
+       }
+
+           .meal-details::-webkit-scrollbar {
+               width: 10px;
+           }
+
+           .meal-details::-webkit-scrollbar-thumb {
+               background: #f0f0f0;
+               border-radius: 2rem;
+             
+           }
+
+
+     
+       .showRecipe {
+           display: block;
+       }
+
+       .meal-details-content {
+           margin: 2rem;
+       }
+
+           .meal-details-content p:not(.recipe-category) {
+               padding: 1rem 0;
+           }
+
+       .recipe-close-btn {
+           position: absolute;
+           right: 2rem;
+           top: 2rem;
+           font-size: 1.8rem;
+           background: white;
+           border: none;
+           width: 35px;
+           height: 35px;
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           opacity: 0.9;
+           cursor:pointer;
+       }
+
+           .recipe-close-btn:hover {
+               background:red;
+               color:white;
+           }
+
+       .recipe-title {
+               letter-spacing: 1px;
+               padding-bottom: 1rem;
+               font-family:pangolin;
+               font-size:3.0rem;
+       }
+
+       .recipe-category {
+           background: white;
+           font-weight: 600;
+           color: black;
+           display: inline-block;
+           padding: 0.2rem 0.5rem;
+           border-radius: 0.3rem;
+           position:relative;
+           bottom:25px;
+           font-size:1.5rem;
+           font-family:'Pangolin';
+       }
+
+       .recipe-instruct {
+           padding: 1rem 0;
+           position:relative;
+           bottom:30px;
+           font-size:1.3rem;
+           font-family:'Dancing Script ';
+       }
+
+           .recipe-instruct h3 {
+               font-size:2.3rem;
+               font-family:'Dancing Script';
+               color:red;
+               font-weight:200;
+           }
+
+       .recipe-meal-img img {
+           width: 100px;
+           height: 100px;
+           border-radius: 50%;
+           margin: 0 auto;
+           display: block;
+           position: relative;
+           bottom: 50px;
+       }
+
+       .recipe-link {
+           margin: 1.4rem 0;
+           position:relative;
+           bottom:50px;
+           
+       }
+
+           .recipe-link a {
+               color: white;
+               font-size: 1.3rem;
+               font-weight: 700;
+               transition: all 0.4s linear;
+               font-family:Pangolin;
+           }
+
+               .recipe-link a:hover {
+                   opacity: 0.8;
+                   font-size:1.8rem;
+                   transition:0.5s;
+               }
+
+
+       .notFound {
+           grid-template-columns: 1fr !important;
+           color: white;
+           font-size: 4.0rem;
+           font-weight: 600;
+           width: 100%;
+           font-family:Pangolin;
+       }
+
+       ul {
+           list-style-type: none;
+           background: #994C00;
+           margin: 0px;
+           color: white;
+           display: flex;
+           flex-direction: row;
+           align-items: center;
+           margin-top:0px;
+           z-index:1;
+       }
+
+       li {
+           font-size: 20px;
+           padding-left: 80px;
+       }
+
+       a:link {
+           opacity: 0.5;
+           color: white;
+           text-decoration: none;
+       }
+
+       a:visited {
+           color: white;
+       }
+
+
+       a:hover {
+           opacity: 1;
+       }
+
+
+
+
+       
+       @media screen and (min-width: 600px) {
+           .search-box {
+               width: 540px;
+               margin-left: auto;
+               margin-right: auto;
+           }
+       }
+
+       @media screen and (min-width: 768px) {
+           #meal {
+               display: grid;
+               grid-template-columns: repeat(2, 1fr);
+               gap: 2rem;
+           }
+
+           .meal-item {
+               margin: 0;
+           }
+
+           .meal-details {
+               width: 700px;
+           }
+       }
+
+       @media screen and (min-width: 992px) {
+           #meal {
+               grid-template-columns: repeat(3, 1fr);
+           }
+       }
+
+    </style>
+              </head >
+<body>
+   
+        <ul>
+            <li style="font-family: 'Lato', sans-serif; font-weight:bold; color:white;">
+                Recipe Guide
+                <p style="font-family: 'Dancing Script', cursive; color:white;margin:1px;">Daily new Recipes</p>
+            </li>
+            <li><a href="Home.html"><i class="material-symbols-outlined">Home</i>&nbspHome</a></li>
+            <li><a href="Recipes.html"><i class="material-symbols-outlined">Restaurant</i>&nbspRecipes </a></li>
+
+            <li><a href="AboutUs.html"><i class="material-symbols-outlined">Chat</i>&nbspAbout Us</a></li>
+            <li><a href="Login.html">Login </a></li>
+            <li><a href="Sign Up.html">Sign Up </a></li>
+        </ul>
+
+
+
+        <div class="container">
+            <div class="contain">
+                <div class="search">
+                    <h2 class="heading" style="position:relative; top:20px;">Daily Updated.</h2>
+                    <p style="color: white; font-size: 25px; position: relative; bottom: 15px; font-family: 'Lato', sans-serif;">
+                        Daily updated recipes and cooking tips.
+                    </p>
+
+                    <div class="search-box">
+                        <input type="text" class="search-text" placeholder="Search Recipes...." id="search-input">
+                        <button type="submit" class="search-btn btn" id="search-btn">
+                            <i class="fas fa-search"> </i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="result">
+                    <h2 class="heading"> Search Results:</h2>
+                    <div id="meal">
+
+                    </div>
+                </div>
+
+
+                <div class="meal-details">
+
+                    <button type="button" class="btn recipe-close-btn" id="recipe-close-btn">
+                        <i class="fas fa-times"> </i>
+                    </button>
+
+                    <div class="meal-details-content">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script>
+            const searchBtn = document.getElementById('search-btn');
+            const mealList = document.getElementById('meal');
+            const mealDetailsContent = document.querySelector('.meal-details-content');
+            const recipeCloseBtn = document.getElementById('recipe-close-btn');
+
+
+            searchBtn.addEventListener('click', getMealList);
+            mealList.addEventListener('click', getMealRecipe);
+            recipeCloseBtn.addEventListener('click', () => {
+                mealDetailsContent.parentElement.classList.remove('showRecipe');
+            });
+
+
+            function getMealList() {
+                let searchInputTxt = document.getElementById('search-input').value.trim();
+                fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInputTxt}`).then(response => response.json()).then(data => {
+                    let html = "";
+                    if (data.meals) {
+                        data.meals.forEach(meal => {
+                            html += `
+                                            <div class = "meal-item" data-id = "${meal.idMeal}">
+                                                <div class = "meal-img">
+                                                    <img src = "${meal.strMealThumb}" alt = "food">
+                                                </div>
+                                                <div class = "meal-name">
+                                                    <h3>${meal.strMeal}</h3>
+                                                    <a href = "#" class = "recipe-btn">Get Recipe</a>
+                                                </div>
+                                            </div>
+                                        `;
+                        });
+                        mealList.classList.remove('notFound');
+                    } else {
+                        html = "Sorry, No Results Found !";
+                        mealList.classList.add('notFound');
+                    }
+
+                    mealList.innerHTML = html;
+                });
+            }
+
+
+
+            function getMealRecipe(e) {
+                e.preventDefault();
+                if (e.target.classList.contains('recipe-btn')) {
+                    let mealItem = e.target.parentElement.parentElement;
+                    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealItem.dataset.id}`).then(response => response.json()).then(data => mealRecipeModal(data.meals));
+                }
+
+            }
+
+
+            function mealRecipeModal(meal) {
+                console.log(meal);
+                meal = meal[0];
+                let html = ` <h2 class = "recipe-title">${meal.strMeal}  </h2 >
+
+                                <p class = "recipe-category" > ${meal.strCategory} </p >
+
+                                <div class = "recipe-instruct" >
+                                <h3 > Instructions:</h3 >
+                                <p > ${meal.strInstructions} </p >
+                                </div >
+
+                                <div class = "recipe-meal-img" >
+                                <img src = "${meal.strMealThumb}" alt = "" >
+                                </div >
+                                <div class = "recipe-link" >
+                                <a href = "${meal.strYoutube}" target = "_blank" ><i class="material-symbols-outlined">Youtube_Activity</i> Watch Video Tutorial.</a >
+                                </div >
+                                `;
+                mealDetailsContent.innerHTML = html;
+                mealDetailsContent.parentElement.classList.add('showRecipe');
+            }
+        </script>
+</body>
+                </html >
